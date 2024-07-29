@@ -9,31 +9,21 @@ namespace WebApplication3.Areas.Identity.Pages.Account
     public class CreateUserModel : PageModel
     {
         #region Members   
-
-
-
-
-
         [BindProperty]
         public UserModel userModel { get; set; }
 
-        private readonly CreateUserModel createUserModel;
-
-        public CreateUserModel GetCreateUserModel()
-        {
-            return createUserModel;
-        }
         #endregion
         #region Constructor     
-        public CreateUserModel(
-            CreateUserModel userModel)
-        { createUserModel = userModel; }
+        public CreateUserModel()
+        { 
+
+        }
         #endregion
 
         public void OnGet()
         {
+            userModel = new UserModel();
         }
-        UserModel model = new UserModel();
         public async Task<ActionResult> OnPost()
         {
             if (!ModelState.IsValid)
