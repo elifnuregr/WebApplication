@@ -4,12 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{5E83EF4A-E3C8-40D4-93A3-5180DA3CCE0B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2F1E3FF6-FD97-465A-A6A0-6BFEB47702B6} = {2F1E3FF6-FD97-465A-A6A0-6BFEB47702B6}
+		{81C70ADB-2F67-4C6A-B948-3D703FD3D1F4} = {81C70ADB-2F67-4C6A-B948-3D703FD3D1F4}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{9F44013D-51DD-432A-97DF-7D4B995CC181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{9F44013D-51DD-432A-97DF-7D4B995CC181}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{2F1E3FF6-FD97-465A-A6A0-6BFEB47702B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{2F1E3FF6-FD97-465A-A6A0-6BFEB47702B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "DomainLayer\DomainLayer.csproj", "{81C70ADB-2F67-4C6A-B948-3D703FD3D1F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainLayer", "DomainLayer\DomainLayer.csproj", "{81C70ADB-2F67-4C6A-B948-3D703FD3D1F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
