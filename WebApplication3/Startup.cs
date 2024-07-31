@@ -1,4 +1,6 @@
-﻿public class Startup
+﻿using Microsoft.EntityFrameworkCore;
+
+public class Startup
 {
     readonly IConfiguration configuration;
 
@@ -10,6 +12,7 @@
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
+       
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
