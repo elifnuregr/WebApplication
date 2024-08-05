@@ -1,18 +1,16 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
+﻿using BusinessLayer.Interface;
+using BusinessLayer.Services;
+using DomainLayer.Interface;
 
 public class Startup
 {
-    readonly IConfiguration configuration;
-
-    public Startup(IConfiguration configuration)
-    {
-        this.configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-    }
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddControllersWithViews();
         services.AddRazorPages();
+        services.AddControllersWithViews();
+
+        // IInstaller implementasyonlarını ekleme
+        services.AddScoped<IInstaller, Installer>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -29,9 +27,7 @@ public class Startup
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-
         app.UseRouting();
-
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints =>
@@ -43,4 +39,5 @@ public class Startup
             endpoints.MapRazorPages();
         });
     }
+
 }

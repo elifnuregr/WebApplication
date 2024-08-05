@@ -33,5 +33,10 @@ namespace BusinessLayer.Services
 
             return result;
         }
+
+        public bool IsUserExist(object userName, object password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
