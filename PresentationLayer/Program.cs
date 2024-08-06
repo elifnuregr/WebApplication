@@ -1,37 +1,15 @@
-using BusinessLayer.Interface;
-using BusinessLayer.Services;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Servisleri ekleyin
-builder.Services.AddRazorPages();
-builder.Services.AddControllersWithViews();
-
-// IUserService'i DI konteynerine ekleyin
-builder.Services.AddScoped<IUserService, UserService>();
-
-var app = builder.Build();
-
-// Middleware ve endpoint'leri yapýlandýrýn
-if (app.Environment.IsDevelopment())
+public class Program
 {
-    app.UseDeveloperExceptionPage();
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        });
 }
-else
-{
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
-app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.MapRazorPages();
-
-app.Run();

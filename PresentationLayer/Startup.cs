@@ -1,16 +1,24 @@
 ﻿using BusinessLayer.Interface;
 using BusinessLayer.Services;
 using DomainLayer.Interface;
+using IocLayer;
+using Microsoft.Extensions.Configuration;
 
 public class Startup
 {
+    public IConfiguration Configuration { get; }
+    public Startup(IConfiguration configuration, IHostEnvironment env)
+    {
+        Configuration = configuration;
+    }
+
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddRazorPages();
         services.AddControllersWithViews();
 
         // IInstaller implementasyonlarını ekleme
-        services.AddScoped<IInstaller, Installer>();
+        InstallServicesInAssembly(services, Configuration);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,6 +46,17 @@ public class Startup
 
             endpoints.MapRazorPages();
         });
+    }
+
+    public void InstallServicesInAssembly(IServiceCollection services, IConfiguration configuration)
+    {
+        var interfaceType = typeof(IInstaller);
+        var installers = AppDomain.CurrentDomain.GetAssemblies()
+          .SelectMany(x => x.GetTypes())
+          .Where(x => interfaceType.IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+          .Select(x => Activator.CreateInstance(x)).Cast<IInstaller>().ToList();
+
+        installers.ForEach(installer => installer.InstallServices(services, configuration));
     }
 
 }
