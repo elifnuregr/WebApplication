@@ -58,5 +58,4 @@ public class Startup
 
         installers.ForEach(installer => installer.InstallServices(services, configuration));
     }
-
 }

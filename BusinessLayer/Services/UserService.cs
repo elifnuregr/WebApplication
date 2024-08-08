@@ -21,7 +21,7 @@ namespace BusinessLayer.Services
         {
             bool result = false;
 
-            if(model != null)
+            if (model != null)
             {
                 //Db model ile dto eşitle
 

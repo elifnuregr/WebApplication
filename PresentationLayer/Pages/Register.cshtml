@@ -1,4 +1,51 @@
-﻿@page
+﻿@page "/Register"
 @model PresentationLayer.Pages.RegisterModel
 @{
+    Layout = "_Layout";
 }
+<div class="row justify-content-center">
+    <div class="col-10">
+        <section>
+            <form id="account" method="post">
+                <h2>Register as a new user.</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.register.FirstName" class="form-control" autocomplete="current-name" aria-required="true" placeholder="Name" />
+                    <label asp-for="@Model.register.FirstName" class="form-label">Name</label>
+                    <span asp-validation-for="@Model.register.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.register.LastName" class="form-control" autocomplete="current-surname" aria-required="true" placeholder="Surname" />
+                    <label asp-for="@Model.register.LastName" class="form-label">Surname</label>
+                    <span asp-validation-for="@Model.register.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.register.UserName" class="form-control" autocomplete="current-username" aria-required="true" placeholder="Username" />
+                    <label asp-for="@Model.register.UserName" class="form-label">UserName</label>
+                    <span asp-validation-for="@Model.register.UserName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.register.Email" class="form-control" autocomplete="email" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="@Model.register.Email" class="form-label">Email</label>
+                    <span asp-validation-for="@Model.register.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.register.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Password" />
+                    <label asp-for="@Model.register.Password" class="form-label">Password</label>
+                    <span asp-validation-for="@Model.register.Password" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="@Model.register.ConfirmPassword" class="form-control" autocomplete="current-confirmpassword" aria-required="true" placeholder="Confirm Password" />
+                    <label asp-for="@Model.register.ConfirmPassword" class="form-label">ConfirmPassword</label>
+                    <span asp-validation-for="@Model.register.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div>
+                    <button id="register-submit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+    </div>
+</div>

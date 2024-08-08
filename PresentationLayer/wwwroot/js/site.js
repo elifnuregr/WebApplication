@@ -1,4 +1,37 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// tabs
+$('#login-form #tab-register').click(function () {
 
-// Write your JavaScript code.
+	$('#login-form').fadeToggle();
+	$(".form-background").animate(
+		{
+			"top": "-342px",
+			"width": "400px",
+			"height": "410px"
+		},
+		"slow", function () {
+			$('#register-form').fadeToggle();
+		});
+});
+
+$('#register-form #tab-login').click(function () {
+
+	$('#register-form').fadeToggle();
+	$(".form-background").animate(
+		{
+			"top": "-214px",
+			"width": "400px",
+			"height": "290px"
+		},
+		"slow", function () {
+			$('#login-form').fadeToggle();
+		});
+});
+
+// Tips
+$('#register-form .email-tip-icon').hover(function () {
+	$('#message-email').fadeToggle();
+});
+
+$('#register-form .password-tip-icon').hover(function () {
+	$('#message-password').fadeToggle();
+});
