@@ -21,7 +21,7 @@ namespace BusinessLayer.Services
         {
             bool result = false;
 
-            if(model != null)
+            if (model != null)
             {
                 //Db model ile dto eşitle
 
@@ -34,9 +34,18 @@ namespace BusinessLayer.Services
             return result;
         }
 
-        public bool IsUserExist(object userName, object password)
+        public bool IsUserExist(string userName, string password)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            try
+            {
+                result = _userRepository.GetUserByUserName(userName, password);
+            }
+            catch {
+                throw new Exception("Beklenmedik bir hata oluştu.");
+            }
+            
+            return result;
         }
     }
 }

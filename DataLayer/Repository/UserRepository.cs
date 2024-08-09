@@ -1,14 +1,17 @@
-﻿using DomainLayer.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DomainLayer.Models;
+using DomainLayer.Interface;
+using DataLayer.Context;
 
 namespace DataLayer.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        //Generic create method
+        public UserRepository(StajProjeContext context) : base(context)
+        {
+        }
+        public bool GetUserByUserName(string userName, string password)
+        {
+            return _context.Users.Any(x => x.UserName == userName && x.Password == password);
+        }
     }
 }

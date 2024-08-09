@@ -24,14 +24,15 @@ namespace PresentationLayer.Pages
             if (ModelState.IsValid)
             {
                 //check the user exists or not
-                if (!_tUserService.IsUserExist(login.Email, login.Password))
+                var isExist = _tUserService.IsUserExist(login.UserName, login.Password);
+                if (!isExist)
                 {
                     ModelState.AddModelError("", "Kullanýcý bilgileri hatalý");
 
-                    return Page();
+                    return RedirectToPage("/Login",ModelState);
                 }
 
-                return RedirectToPage("/CashRegister/Index");
+                return RedirectToPage("/Index");
             }
             else
             {
