@@ -10,6 +10,6 @@ namespace BusinessLayer.Interface
     public interface IUserService
     {
         bool CreateUser(User model);
-        bool IsUserExist(object userName, object password);
+        bool IsUserExist(string userName,string password);
     }
 }

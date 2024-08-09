@@ -1,8 +1,6 @@
-﻿using BusinessLayer.Interface;
-using BusinessLayer.Services;
-using DomainLayer.Interface;
+﻿using BusinessLayer.Configuration;
 using IocLayer;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 public class Startup
 {
@@ -16,7 +14,7 @@ public class Startup
     {
         services.AddRazorPages();
         services.AddControllersWithViews();
-
+        services.Configure<DbConnectionInfo>(Configuration.GetSection("DbConnection"));
         // IInstaller implementasyonlarını ekleme
         InstallServicesInAssembly(services, Configuration);
     }
