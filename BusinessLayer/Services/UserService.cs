@@ -27,7 +27,6 @@ namespace BusinessLayer.Services
 
                 //kullanıcı ekle
                 //_userRepository.Create();
-
                 result = true;
             }
 
