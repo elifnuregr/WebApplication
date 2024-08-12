@@ -9,7 +9,8 @@ namespace BusinessLayer.Interface
 {
     public interface IUserService
     {
-        bool CreateUser(User model);
+        bool CreateUser(UserDTO model);
         bool IsUserExist(string userName,string password);
+        public bool IsUserExistByUserName(string userName);
     }
 }

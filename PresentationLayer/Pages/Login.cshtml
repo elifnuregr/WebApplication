@@ -1,4 +1,4 @@
-﻿@page "/Login"
+﻿@page "/"
 @model LoginModel
 @{
     Layout = "_Layout";
@@ -7,12 +7,12 @@
     <div class="col-10">
         <section>
             <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
+                <h2>Log In</h2>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                 <div class="form-floating mb-3">
                     <input asp-for="@Model.login.UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="username" />
-                    <label asp-for="@Model.login.UserName" class="form-label">Email</label>
+                    <label asp-for="@Model.login.UserName" class="form-label">UserName</label>
                     <span asp-validation-for="@Model.login.UserName" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Models
 {
-    public class User
+    public class UserDTO
     {
         public int Id { get; set; }
         public string UserName { get; set; }

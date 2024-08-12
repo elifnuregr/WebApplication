@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Interface;
 using BusinessLayer.Models;
 using DomainLayer.Interface;
+using DomainLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +18,30 @@ namespace BusinessLayer.Services
         {
             _userRepository = userRepository;
         }
-        public bool CreateUser(User model)
+        public bool CreateUser(UserDTO model)
         {
             bool result = false;
-
-            if (model != null)
+            try
             {
-                //Db model ile dto eşitle
+                if (model != null)
+                {
+                    //Db model ile dto eşitle
+                    User user = new User();
+                    user.FirstName = model.FirstName;
+                    user.LastName = model.LastName;
+                    user.UserName = model.UserName;
+                    user.Email = model.Email;
+                    user.Password = model.Password;
 
-                //kullanıcı ekle
-                //_userRepository.Create();
-                result = true;
+                    //kullanıcı ekle
+                    _userRepository.Add(user);
+
+                    result = true;
+                }
+            }
+            catch
+            {
+                throw new Exception("Beklenmedik bir hata oluştu.");
             }
 
             return result;
@@ -38,12 +52,27 @@ namespace BusinessLayer.Services
             bool result = false;
             try
             {
-                result = _userRepository.GetUserByUserName(userName, password);
+                result = _userRepository.GetUserByUserNameAndPassword(userName, password);
             }
             catch {
                 throw new Exception("Beklenmedik bir hata oluştu.");
             }
             
+            return result;
+        }
+
+        public bool IsUserExistByUserName(string userName)
+        {
+            bool result = false;
+            try
+            {
+                result = _userRepository.GetUserByUserName(userName);
+            }
+            catch
+            {
+                throw new Exception("Beklenmedik bir hata oluştu.");
+            }
+
             return result;
         }
     }
