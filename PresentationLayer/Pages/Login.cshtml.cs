@@ -29,7 +29,8 @@ namespace PresentationLayer.Pages
                 {
                     ModelState.AddModelError("", "Kullanýcý bilgileri hatalý");
 
-                    return RedirectToPage("/Login",ModelState);
+                    return Page();
+                   
                 }
 
                 return RedirectToPage("/Index");

@@ -1,7 +1,20 @@
 ﻿@page "/Index"
 @model IndexModel
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Pompa Yazarkasalar</h2>
+<table class="table table-success table-striped">
+    <thead>
+        @foreach(var item in Model.deviceList)
+        {
+            <tr>
+            <th scope="col" asp-items="@item.SerialNumber">SerialNumber</th>
+            <th scope="col" asp-items="@item.ParameterId>ParameterId</th>
+            <th scope="col" asp-items="@item.IsActive>IsActive</th>
+            <th scope="col" asp-items="@item.FirstParameterDate>FirstParameterDate</th>
+            <th scope="col" asp-items="@item.LastParameterDate>LastParameterDate</th>
+            <th scope="col" asp-items="@item.IsDeleted>IsDeleted</th>
+            <th scope="col" asp-items="@item.CreatedDate>CreatedDate</th>
+            <th scope="col" asp-items="@item.UpdatedDate">UpdatedDate</th>
+        </tr>
+        }
+    </thead>
+</table>

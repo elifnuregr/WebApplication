@@ -3,11 +3,16 @@
 @{
     Layout = "_Layout";
 }
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
 <div class="row justify-content-center">
     <div class="col-10">
         <section>
             <form id="account" method="post">
-                <h2>Log In</h2>
+                <h2 class="text-center" >Log In</h2>
                 <hr />
                 <div class="form-floating mb-3">
                     <input asp-for="@Model.login.UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="username" />
@@ -19,7 +24,10 @@
                     <label asp-for="@Model.login.Password" class="form-label">Password</label>
                     <span asp-validation-for="@Model.login.Password" class="text-danger"></span>
                 </div>
-                <div class="checkbox mb-3">
+
+                          <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+               
+                          <div class="checkbox mb-3">
                     <label asp-for="@Model.login.RememberMe" class="form-label">
                         <input class="form-check-input" asp-for="@Model.login.RememberMe" />
                         @Html.DisplayNameFor(m => m.login.RememberMe)

@@ -20,9 +20,14 @@ namespace IocLayer
             //Data
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IDeviceRepository, DeviceRepository>();
+            services.AddScoped<IParameterRepository,IParameterRepository>();
 
             //Services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IDeviceService, DeviceService>();
+            services.AddScoped<IParameterService, ParameterService>();
         }
     }
+    
 }
