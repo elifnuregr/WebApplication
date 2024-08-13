@@ -10,16 +10,21 @@ namespace PresentationLayer.Pages
         private readonly ILogger<IndexModel> _logger;
         public List<DeviceDTO> deviceList;
         public IDeviceService _deviceService;
+        public List<ParameterDTO> parameterList;
+        public IParameterService _parameterService;
         public IndexModel(ILogger<IndexModel> logger,
-            IDeviceService deviceService)
+            IDeviceService deviceService,
+            IParameterService parameterService)
         {
             _logger = logger;
             _deviceService = deviceService;
+            _parameterService = parameterService;
         }
 
         public void OnGet()
         {
             deviceList = _deviceService.GetAllDevices();
+            parameterList=_parameterService.GetAllParameters();
         }
     }
 }

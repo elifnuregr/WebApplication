@@ -21,7 +21,7 @@ namespace IocLayer
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IDeviceRepository, DeviceRepository>();
-            services.AddScoped<IParameterRepository,IParameterRepository>();
+            services.AddScoped<IParameterRepository,ParameterRepository>();
 
             //Services
             services.AddScoped<IUserService, UserService>();
