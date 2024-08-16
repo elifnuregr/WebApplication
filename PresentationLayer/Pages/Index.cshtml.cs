@@ -19,9 +19,6 @@ namespace PresentationLayer.Pages
             _logger = logger;
             _deviceService = deviceService;
             _parameterService = parameterService;
-        }
-
-        public void OnGet()
         {
             deviceList = _deviceService.GetAllDevices();
             parameterList=_parameterService.GetAllParameters();

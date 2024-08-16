@@ -13,11 +13,6 @@ namespace BusinessLayer.Services
     public class UserService : IUserService
     {
         private IUserRepository _userRepository;
-
-        public UserService(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-        }
         public bool CreateUser(UserDTO model)
         {
             bool result = false;

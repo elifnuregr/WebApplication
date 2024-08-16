@@ -29,7 +29,7 @@ namespace PresentationLayer.Pages
                     _tUserService.CreateUser(registerModel);
                     ModelState.AddModelError("", "Kullanýcý oluþturulamadý");
 
-                    return RedirectToPage("/Index",ModelState);
+                    return RedirectToPage("/Index", ModelState);
 
                 }
 
@@ -40,6 +40,5 @@ namespace PresentationLayer.Pages
                 return Page();
             }
         }
-        
     }
 }
