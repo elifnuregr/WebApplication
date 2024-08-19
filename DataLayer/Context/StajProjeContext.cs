@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using DataLayer.Models;
+using DomainLayer.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer.Context;

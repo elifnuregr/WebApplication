@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Interface
 {
-    public interface IUserService
+    public interface IParameterService
     {
-        bool CreateUser(UserDTO model);
-        bool IsUserExist(string userName, string password);
-        public bool IsUserExistByUserName(string userName);
+        List<ParameterDTO> GetAllParameters();
     }
 }
