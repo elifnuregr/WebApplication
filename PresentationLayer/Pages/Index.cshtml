@@ -1,20 +1,52 @@
 ﻿@page "/Index"
 @model IndexModel
+<link href="~/css/custom.css" rel="stylesheet" />
+
+@{
+    Layout = "_Layout";
+}
+<div style="color:#64a96a !important;margin-bottom:6rem!important">
+<p style="position:fixed;right:0%;" >Hoş geldin @Model.User.FirstName @Model.User.LastName 
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
+    </svg>
+</p>
+</div>
+
 <h2>Pompa Yazarkasalar</h2>
-<table class="table table-success table-striped">
-    <thead>
-        @foreach(var item in Model.deviceList)
-        {
-            <tr>
-            <th scope="col" asp-items=@item.SerialNumber>SerialNumber</th>
-            <th scope="col" asp-items=@item.ParameterId>ParameterId</th>
-            <th scope="col" asp-items=@item.IsActive>IsActive</th>
-            <th scope="col" asp-items=@item.FirstParameterDate>FirstParameterDate</th>
-            <th scope="col" asp-items=@item.LastParameterDate>LastParameterDate</th>
-            <th scope="col" asp-items=@item.IsDeleted>IsDeleted</th>
-            <th scope="col" asp-items=@item.CreatedDate>CreatedDate</th>
-            <th scope="col" asp-items=@item.UpdatedDate>UpdatedDate</th>
-           </tr>
-        }
-    </thead>
-</table>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Serial Number</th>
+                        <th scope="col">Parameter Name</th>
+                        <th scope="col">Is Active</th>
+                        <th scope="col">First Parameter Date</th>
+                        <th scope="col">Last Parameter Date</th>
+                        <th scope="col">Created Date</th>
+                        <th scope="col">Updated Date</th>
+                        <th scope="col">Is Deleted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.deviceList)
+                    {
+                        <tr>
+                            <td>@item.SerialNumber</td>
+                            <td>@item.ParameterName</td>
+                            <td>@item.IsActive</td>
+                            <td>@item.FirstParameterDate</td>
+                            <td>@item.LastParameterDate</td>
+                            <td>@item.CreatedDate</td>
+                            <td>@item.UpdatedDate</td>
+                            <td>@item.IsDeleted</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,11 @@ namespace BusinessLayer.Services
     public class UserService : IUserService
     {
         private IUserRepository _userRepository;
+
+        public UserService(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
         public bool CreateUser(UserDTO model)
         {
             bool result = false;
@@ -42,6 +47,37 @@ namespace BusinessLayer.Services
             return result;
         }
 
+        public UserDTO? GetUserInfoByUserName(string userName)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(userName))
+                {
+                    var data = _userRepository.GetUserInfoByUserName(userName);
+                    if (data != null)
+                    {
+                        UserDTO user = new UserDTO();
+                        user.Id = data.Id;
+                        user.UserName = data.UserName;
+                        user.FirstName = data.FirstName;
+                        user.LastName = data.LastName;
+
+                        return user;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch
+            {
+                throw new Exception("Kullanıcı bilgisi bulunamadı.");
+            }
+
+            return null;   
+        }
+
         public bool IsUserExist(string userName, string password)
         {
             bool result = false;
@@ -49,10 +85,11 @@ namespace BusinessLayer.Services
             {
                 result = _userRepository.GetUserByUserNameAndPassword(userName, password);
             }
-            catch {
+            catch
+            {
                 throw new Exception("Beklenmedik bir hata oluştu.");
             }
-            
+
             return result;
         }
 

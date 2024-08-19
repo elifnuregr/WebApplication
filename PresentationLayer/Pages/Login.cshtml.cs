@@ -1,4 +1,4 @@
-using BusinessLayer.Interface;
+ï»¿using BusinessLayer.Interface;
 using BusinessLayer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,7 +8,7 @@ namespace PresentationLayer.Pages
     public class LoginModel : PageModel
     {
         private IUserService _tUserService;
-        
+
         [BindProperty]
         public LoginViewModel login { get; set; }
         public LoginModel(IUserService tUserService)
@@ -24,16 +24,16 @@ namespace PresentationLayer.Pages
             if (ModelState.IsValid)
             {
                 //check the user exists or not
-                var isExist = _tUserService.IsUserExist(login.UserName, login.Password);
+                bool isExist = _tUserService.IsUserExist(login.UserName, login.Password);
                 if (!isExist)
                 {
-                    ModelState.AddModelError("", "Kullanýcý bilgileri hatalý");
+                    ModelState.AddModelError(string.Empty, "KullanÄ±cÄ± bilgileri hatalÄ±");
 
                     return Page();
-                   
+
                 }
 
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Index", login);
             }
             else
             {
@@ -42,4 +42,4 @@ namespace PresentationLayer.Pages
         }
 
     }
-}
+} 

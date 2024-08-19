@@ -18,5 +18,10 @@ namespace BusinessLayer.Models
         public string Password { get; set; }
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
+
+        internal static UserDTO FindUser(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
