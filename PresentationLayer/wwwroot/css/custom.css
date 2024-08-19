@@ -1,0 +1,164 @@
+﻿/* Background color */
+body {
+    background-color: #e8f5e9; /* Light green background color */
+}
+
+/* Update card style */
+.card {
+    border: 1px solid #a5d6a7; /* Light green border */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* To ensure smooth corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    width: 100%; /* Full width */
+    max-width: 500px; /* Maximum width */
+    margin: 0 auto; /* Centered position */
+}
+
+/* Card body background color */
+.card-body {
+    background-color: #ffffff; /* White background */
+    padding: 2.5rem; /* Increase padding inside the card */
+}
+
+/* Form fields */
+.form-control {
+    border-color: #a5d6a7; /* Light green border color */
+    background-color: #f1f8e9; /* Light green background */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 1.1rem; /* Larger font size */
+    padding: 1rem; /* More padding */
+    color: #2e7d32; /* Dark green text color */
+}
+
+    /* Focus state for form fields */
+    .form-control:focus {
+        border-color: #66bb6a; /* Intense green border color */
+        box-shadow: 0 0 0 0.2rem rgba(102, 187, 106, 0.25); /* Light green shadow */
+    }
+
+/* Buttons */
+.btn-primary {
+    background-color: #66bb6a; /* Green button color */
+    border-color: #66bb6a; /* Green border color */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 1.1rem; /* Larger font size */
+    padding: 0.75rem; /* More padding */
+    color: #ffffff; /* White text color */
+}
+
+    .btn-primary:hover {
+        background-color: #57a05d; /* Darker green button color */
+        border-color: #57a05d; /* Darker green border color */
+    }
+
+/* Texts */
+.text-center {
+    color: #2e7d32; /* Green text color */
+}
+
+/* Custom styling for the error message */
+.text-danger {
+    padding: 10px;
+    border-radius: 5px;
+    color: #d9534f; /* Red text color */
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    max-width: 100%;
+}
+
+/* Fade out effect */
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+/* Links */
+a {
+    color: #66bb6a; /* Green link color */
+}
+
+    a:hover {
+        color: #57a05d; /* Darker green link color */
+    }
+
+/* Form labels */
+.form-label {
+    color: #1b5e20; /* Darker green form label color */
+    font-size: 1.1rem; /* Larger font size */
+}
+
+/* Checkbox */
+.form-check-input {
+    background-color: #dcedc8; /* Lighter green background */
+    border-color: #c5e1a5; /* Lighter green border color */
+    border-radius: 5px; /* Rounded corners */
+}
+
+    .form-check-input:checked {
+        background-color: #a5d6a7; /* Lighter green background when checked */
+        border-color: #a5d6a7; /* Lighter green border color when checked */
+    }
+
+        .form-check-input:checked::after {
+            background-color: #ffffff; /* White check mark color */
+        }
+
+/* Ensure table headers are the same size */
+.table thead th {
+    font-size: 0.9rem; /* Slightly smaller font size for better fit */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center-align text */
+    color: #1b5e20; /* Darker green header text color */
+}
+
+/* Adjust padding for better alignment */
+.table th, .table td {
+    padding: 0.5rem; /* Reduced padding for better fit */
+}
+
+/* Ensure table fits within container */
+.table-responsive {
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+/* Optional: Adjust table head row background color for consistency */
+.table-success thead th,
+.table-secondary thead th {
+    background-color: #e9ecef; /* Light grey background for consistency */
+}
+
+/* Adjust font size for table data */
+.table td {
+    font-size: 0.9rem; /* Adjust font size to match header */
+    color: #2e7d32; /* Dark green data text color */
+}
+
+/* Style for privacy notice */
+footer {
+    padding: 1rem;
+    background-color: #f8f9fa; /* Light grey background */
+    border-top: 1px solid #dee2e6; /* Top border for separation */
+}
+
+.privacy-text {
+    font-size: 0.875rem; /* Slightly smaller font size */
+    color: #6c757d; /* Grey text color */
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+#error-message {
+    margin-bottom: 1rem; /* Adds space below the error message */
+}
+
+.form-check {
+    margin-bottom: 1rem; /* Ensures space between the checkbox and other elements */
+}
+
+.form-check-input {
+    margin-right: 0.5rem; /* Adds space between the checkbox and label */
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: white !important;
+}

@@ -11,6 +11,7 @@ namespace BusinessLayer.Interface
     {
         bool CreateUser(UserDTO model);
         bool IsUserExist(string userName, string password);
-        public bool IsUserExistByUserName(string userName);
+        bool IsUserExistByUserName(string userName);
+        UserDTO? GetUserInfoByUserName(string userName);
     }
 }
